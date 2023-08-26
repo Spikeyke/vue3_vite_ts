@@ -31,6 +31,9 @@ devDependencies:
   eslint-plugin-vue:
     specifier: ^9.17.0
     version: registry.npmmirror.com/eslint-plugin-vue@9.17.0(eslint@8.47.0)
+  prettier:
+    specifier: ^3.0.2
+    version: registry.npmmirror.com/prettier@3.0.2
   prettier-eslint:
     specifier: ^15.0.1
     version: registry.npmmirror.com/prettier-eslint@15.0.1
