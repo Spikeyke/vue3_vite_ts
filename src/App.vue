@@ -8,10 +8,12 @@
       layout="total, sizes, prev, pager, next, jumper"
       :total="400"
     />
+    <Test></Test>
   </div>
 </template>
 <script setup lang="ts">
 //@ts-ignore
 import { Plus, Edit, Delete } from '@element-plus/icons-vue'
+import Test from '@/components/test.vue'
 </script>
 <style scoped></style>
