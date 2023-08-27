@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>SVG测试</h1>
-    <svg-icon name="mountain" color="purple"></svg-icon>
-    <svg-icon name="file" color="purple"></svg-icon>
+    <h1>测试代码</h1>
   </div>
 </template>
 <script setup lang="ts"></script>
-<style scoped></style>
+<style scoped lang="scss">
+h1 {
+  color: $color;
+}
+</style>
