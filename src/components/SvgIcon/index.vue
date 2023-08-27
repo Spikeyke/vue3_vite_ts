@@ -1,10 +1,10 @@
 <template>
   <div>
     <!--    svg:图标外层容器节点，内部需要与use标签结合使用-->
-    <svg width="30px">
-      <!--      xlink:href执行用哪一个图标-->
-      <!--      <use xlink:href="#icon-file"></use>-->
-    </svg>
+    <!--    <svg width="30px">
+          &lt;!&ndash;      xlink:href执行用哪一个图标&ndash;&gt;
+          &lt;!&ndash;      <use xlink:href="#icon-file"></use>&ndash;&gt;
+        </svg>-->
     <svg width="30px">
       <use :xlink:href="prefix + name" :fill="color"></use>
     </svg>
