@@ -1,19 +1,11 @@
 <template>
   <div>
-    <el-button type="primary" size="default" :icon="Plus">主要按钮</el-button>
-    <el-button type="success" size="small" :icon="Edit">编辑按钮</el-button>
-    <el-button type="danger" size="small" :icon="Delete">编辑按钮</el-button>
-    <el-pagination
-      :page-sizes="[100, 200, 300, 400]"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
-    />
-    <Test></Test>
+    <h1>SVG测试</h1>
+    <svg-icon name="mountain" color="purple"></svg-icon>
   </div>
 </template>
 <script setup lang="ts">
-//@ts-ignore
-import { Plus, Edit, Delete } from '@element-plus/icons-vue'
-import Test from '@/components/test.vue'
+
+import SvgIcon from '@/components/SvgIcon/index.vue'
 </script>
 <style scoped></style>
