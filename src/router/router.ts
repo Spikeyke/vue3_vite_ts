@@ -1,4 +1,4 @@
-//对外暴露配置路由(常量l路由)
+//对外暴露配置路由(常量路由)
 export const constantRoute = [
   {
     path: '/login',

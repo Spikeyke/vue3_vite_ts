@@ -15,6 +15,7 @@ import '@/styles/index.scss'
  * */
 import axios from 'axios'
 import router from './router'
+import pinia from "@/store";
 
 //获取应用实例对象
 const app = createApp(App)
@@ -26,6 +27,7 @@ app.use(ElementPlus, {
 app.use(globalComponent)
 //注册模板路由
 app.use(router)
+app.use(pinia)
 
 //登录接口
 axios({
