@@ -3,29 +3,34 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login_form">
+        <el-form
+          class="login_form"
+          :model="loginForm"
+          :rules="rules"
+          ref="loginForms"
+        >
           <h1>Hello</h1>
           <h2>欢迎来到硅谷甄选</h2>
-          <el-form-item>
+          <el-form-item prop="username">
             <el-input
-                :prefix-icon="User"
-                v-model="loginForm.username"
+              :prefix-icon="User"
+              v-model="loginForm.username"
             ></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input
-                :prefix-icon="Lock"
-                type="password"
-                v-model="loginForm.password"
-                show-password
+              :prefix-icon="Lock"
+              type="password"
+              v-model="loginForm.password"
+              show-password
             ></el-input>
           </el-form-item>
           <el-form-item>
             <el-button
-                class="login_btn"
-                :loading="loading"
-                type="primary"
-                @click="login"
+              class="login_btn"
+              :loading="loading"
+              type="primary"
+              @click="login"
             >
               登录
             </el-button>
@@ -36,21 +41,23 @@
   </div>
 </template>
 <script setup lang="ts">
-import {User, Lock} from '@element-plus/icons-vue'
-import {reactive, ref} from 'vue'
+import { User, Lock } from '@element-plus/icons-vue'
+import { reactive, ref } from 'vue'
 import useUserStore from '@/store/modules/user.ts'
-import {useRouter} from 'vue-router'
-import {ElNotification} from 'element-plus'
-import {getTime} from "@/utils/time.ts";
+import { useRouter } from 'vue-router'
+import { ElNotification } from 'element-plus'
+import { getTime } from '@/utils/time.ts'
 
+let loginForms = ref()
 let useStore = useUserStore()
 //获取路由器
 let $router = useRouter()
 //定义变量控制按钮加载效果
 let loading = ref(false)
 //收集账号与密码的数据
-let loginForm = reactive({username: 'admin', password: '111111'})
+let loginForm = reactive({ username: 'admin', password: '111111' })
 const login = async () => {
+  await loginForms.value.validate()
   loading.value = true
   try {
     //保证登录成功
@@ -60,7 +67,7 @@ const login = async () => {
     ElNotification({
       type: 'success',
       message: '登录成功',
-      title:`HI,${getTime()}好`
+      title: `HI,${getTime()}好`,
     })
   } catch (error) {
     loading.value = false
@@ -69,6 +76,27 @@ const login = async () => {
       message: (error as Error).message,
     })
   }
+}
+//表单校验需要配置的对象
+const rules = {
+  username: [
+    {
+      required: true,
+      min: 6,
+      max: 10,
+      message: '账号长度至少6位',
+      trigger: 'change',
+    },
+  ],
+  password: [
+    {
+      required: true,
+      min: 6,
+      max: 10,
+      message: '账号长度至少6位',
+      trigger: 'change',
+    },
+  ],
 }
 </script>
 <style scoped lang="scss">
