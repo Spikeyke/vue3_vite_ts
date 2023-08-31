@@ -77,25 +77,42 @@ const login = async () => {
     })
   }
 }
+//自定义校验规则函数
+const  validatorUserName=(rule:any,value:any,callback:any)=>{
+  if(value.length>=5){
+    callback()
+  }else{
+    callback(new Error('账号长度至少5位'))
+  }
+}
+const  validatorPassWord=(rule:any,value:any,callback:any)=>{
+  if(value.length>=6){
+    callback()
+  }else{
+    callback(new Error('密码长度至少6位'))
+  }
+}
 //表单校验需要配置的对象
 const rules = {
   username: [
-    {
-      required: true,
-      min: 6,
-      max: 10,
-      message: '账号长度至少6位',
-      trigger: 'change',
-    },
+    // {
+    //   required: true,
+    //   min: 6,
+    //   max: 10,
+    //   message: '账号长度至少6位',
+    //   trigger: 'change',
+    // },
+    {trigger:'change',validator:validatorUserName}
   ],
   password: [
-    {
-      required: true,
-      min: 6,
-      max: 10,
-      message: '账号长度至少6位',
-      trigger: 'change',
-    },
+    // {
+    //   required: true,
+    //   min: 6,
+    //   max: 10,
+    //   message: '账号长度至少6位',
+    //   trigger: 'change',
+    // },
+    {trigger:'change',validator:validatorPassWord}
   ],
 }
 </script>
