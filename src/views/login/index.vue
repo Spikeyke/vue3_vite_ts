@@ -78,17 +78,17 @@ const login = async () => {
   }
 }
 //自定义校验规则函数
-const  validatorUserName=(rule:any,value:any,callback:any)=>{
-  if(value.length>=5){
+const validatorUserName = (rule: any, value: any, callback: any) => {
+  if (value.length >= 5) {
     callback()
-  }else{
+  } else {
     callback(new Error('账号长度至少5位'))
   }
 }
-const  validatorPassWord=(rule:any,value:any,callback:any)=>{
-  if(value.length>=6){
+const validatorPassWord = (rule: any, value: any, callback: any) => {
+  if (value.length >= 6) {
     callback()
-  }else{
+  } else {
     callback(new Error('密码长度至少6位'))
   }
 }
@@ -102,7 +102,7 @@ const rules = {
     //   message: '账号长度至少6位',
     //   trigger: 'change',
     // },
-    {trigger:'change',validator:validatorUserName}
+    { trigger: 'change', validator: validatorUserName },
   ],
   password: [
     // {
@@ -112,7 +112,7 @@ const rules = {
     //   message: '账号长度至少6位',
     //   trigger: 'change',
     // },
-    {trigger:'change',validator:validatorPassWord}
+    { trigger: 'change', validator: validatorPassWord },
   ],
 }
 </script>
