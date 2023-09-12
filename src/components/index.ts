@@ -1,6 +1,8 @@
 //引入项目中的全局组件
-//@ts-expect-error
 import SvgIcon from './SvgIcon/index.vue'
+//引入 element-plus提供全局图标组件
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 //全局对象
 const allGlobalComponent = { SvgIcon }
 //对外暴露插件对象
@@ -14,5 +16,8 @@ export default {
       //@ts-expect-error
       app.component(key, allGlobalComponent[key])
     })
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+      app.component(key, component)
+    }
   },
 }

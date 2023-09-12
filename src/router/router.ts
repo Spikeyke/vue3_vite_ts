@@ -18,13 +18,8 @@ export const constantRoute = [
       {
         path: '/home',
         component: () => import('@/views/home/index.vue'),
-        meta: { title: '首页', hidden: false },
-      },
-      {
-        path: '/home',
-        component: () => import('@/views/home/index.vue'),
-        meta: { title: '测试', hidden: false },
-      },
+        meta: { title: '首页', hidden: false, icon: "HomeFilled" },
+      }
     ],
   },
   {
