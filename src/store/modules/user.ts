@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { reqLogin, reqUserInfo } from '@/api/user'
 import { loginForm, loginResponseData } from '@/api/user/type.ts'
 import { UserState } from '@/store/modules/types/type.ts'
-import { SET_TOKEN, GET_TOKEN } from '@/utils/token.ts'
+import { SET_TOKEN, GET_TOKEN, REMOVE_TOKEN } from '@/utils/token.ts'
 //引入路由（常量路由
 import { constantRoute } from '@/router/router'
 
@@ -34,7 +34,7 @@ const useUserStore = defineStore('User', {
     },
     //获取用户信息方法
     async userInfo() {
-      //获取用户信息进行存储仓库当中[用户头像、名字
+      //获取用户信息进行存储仓库当中[用户头像、名字]
       let result = await reqUserInfo()
       //如果获取用户信息成功，存储一下用户信息
       if (result.code === 200) {
@@ -43,6 +43,14 @@ const useUserStore = defineStore('User', {
       } else {
 
       }
+    },
+    //退出登录方法
+    async userLogout() {
+      //目前没有mock接口：退出登录接口（通知服务器本地用户唯一标识失效）
+        this.token = '',
+        this.username = '',
+        this.avatar = '',
+        REMOVE_TOKEN();
     }
   },
   getters: {},

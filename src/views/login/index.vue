@@ -3,35 +3,17 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form
-          class="login_form"
-          :model="loginForm"
-          :rules="rules"
-          ref="loginForms"
-        >
+        <el-form class="login_form" :model="loginForm" :rules="rules" ref="loginForms">
           <h1>Hello</h1>
           <h2>欢迎来到硅谷甄选</h2>
           <el-form-item prop="username">
-            <el-input
-              :prefix-icon="User"
-              v-model="loginForm.username"
-            ></el-input>
+            <el-input :prefix-icon="User" v-model="loginForm.username"></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input
-              :prefix-icon="Lock"
-              type="password"
-              v-model="loginForm.password"
-              show-password
-            ></el-input>
+            <el-input :prefix-icon="Lock" type="password" v-model="loginForm.password" show-password></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button
-              class="login_btn"
-              :loading="loading"
-              type="primary"
-              @click="login"
-            >
+            <el-button class="login_btn" :loading="loading" type="primary" @click="login">
               登录
             </el-button>
           </el-form-item>
@@ -44,7 +26,7 @@
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import useUserStore from '@/store/modules/user.ts'
-import { useRouter } from 'vue-router'
+import { useRouter,useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import { getTime } from '@/utils/time.ts'
 
@@ -52,6 +34,8 @@ let loginForms = ref()
 let useStore = useUserStore()
 //获取路由器
 let $router = useRouter()
+//获取路由对象
+let $route=useRoute()
 //定义变量控制按钮加载效果
 let loading = ref(false)
 //收集账号与密码的数据
@@ -63,7 +47,9 @@ const login = async () => {
     //保证登录成功
     await useStore.userLogin(loginForm)
     loading.value = false
-    $router.push('/')
+    //判断登录的时候，路由路径当中是否有query参数，如果有就往query参数跳转，没有跳转首页
+    let redirect:any=$route.query.redirect
+    $router.push({path:redirect||'/'})
     ElNotification({
       type: 'success',
       message: '登录成功',
