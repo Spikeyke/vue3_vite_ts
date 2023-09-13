@@ -5,15 +5,22 @@
   </el-icon>
   <!-- 左侧面包屑 -->
   <el-breadcrumb separator-icon="ArrowRight">
-    <el-breadcrumb-item>权限管理</el-breadcrumb-item>
-    <el-breadcrumb-item>角色管理</el-breadcrumb-item>
+    <!--面包屑动态展示路由与标题 -->
+    <el-breadcrumb-item v-for="(item, index) in $route.matched" :key="index" v-show="item.meta.title" :to="item.path">
+      <!-- <el-icon>
+        <component :is="item.meta.icon"></component>
+      </el-icon> -->
+      <span>{{ item.meta.title }}</span>
+    </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import useLayoutSettingStore from '@/store/setting'
 //获取layout配置相关的仓库
 let LayoutSettingStore = useLayoutSettingStore()
+let $route = useRoute()
 
 const changeIcon = () => {
   LayoutSettingStore.fold = !LayoutSettingStore.fold
