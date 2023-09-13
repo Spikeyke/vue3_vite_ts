@@ -57,7 +57,7 @@ let $route = useRoute()
 </script>
 <script lang="ts">
 //获取layout配置仓库
-import useLayoutSettingStore from '@/store/setting'
+import useLayoutSettingStore from '@/store/modules/setting'
 let LayoutSettingStore = useLayoutSettingStore()
 export default {
   name: 'Layout',
@@ -121,3 +121,4 @@ export default {
   }
 }
 </style>
+@/store/modules/setting

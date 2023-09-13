@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import useLayoutSettingStore from '@/store/setting'
+import useLayoutSettingStore from '@/store/modules/setting'
 //获取layout配置相关的仓库
 let LayoutSettingStore = useLayoutSettingStore()
 let $route = useRoute()
@@ -33,3 +33,4 @@ export default {
 </script>
 
 <style lang="scss" scoped></style>
+@/store/modules/setting
