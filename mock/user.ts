@@ -4,7 +4,8 @@ function createUserList() {
     {
       userId: 1,
       avatar:
-        'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+        // 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+        'https://ts1.cn.mm.bing.net/th/id/R-C.3562db2b97df44ad0a2913367e923bc9?rik=F0gPEgEKbhChlw&riu=http%3a%2f%2fpic.962.net%2fup%2f2016-10%2f14760807179493223.gif&ehk=1QnaRGwQ3oUxW2TtYQHyQM5fm9qkakLLshGCLtGyzE0%3d&risl=&pid=ImgRaw&r=0',
       username: 'admin',
       password: '111111',
       desc: '平台管理员',
