@@ -41,7 +41,7 @@ export const constantRoute = [
       hidden: false,
       icon: 'Lock',
     },
-    redirect:'/acl/user',
+    redirect: '/acl/user',
     children: [
       {
         path: '/acl/user',
@@ -84,7 +84,7 @@ export const constantRoute = [
       icon: 'Goods',
       hidden: false,
     },
-    redirect:'/product/trademark',
+    redirect: '/product/trademark',
     children: [
       {
         path: '/product/trademark',

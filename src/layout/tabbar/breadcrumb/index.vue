@@ -6,7 +6,12 @@
   <!-- 左侧面包屑 -->
   <el-breadcrumb separator-icon="ArrowRight">
     <!--面包屑动态展示路由与标题 -->
-    <el-breadcrumb-item v-for="(item, index) in $route.matched" :key="index" v-show="item.meta.title" :to="item.path">
+    <el-breadcrumb-item
+      v-for="(item, index) in $route.matched"
+      :key="index"
+      v-show="item.meta.title"
+      :to="item.path"
+    >
       <!-- <el-icon>
         <component :is="item.meta.icon"></component>
       </el-icon> -->

@@ -1,25 +1,35 @@
 <template>
   <div class="layout_container">
     <!--    左侧菜单-->
-    <div class="layout_slider" >
+    <div class="layout_slider">
       <Logo></Logo>
       <!-- 滚动菜单 -->
       <!-- 滚动组件 -->
       <el-scrollbar class="scrollbar">
         <!-- 菜单组件 -->
-        <el-menu :collapse="LayoutSettingStore.fold ? true : false" :default-active="$route.path"
-          background-color="#001529" text-color="white">
+        <el-menu
+          :collapse="LayoutSettingStore.fold ? true : false"
+          :default-active="$route.path"
+          background-color="#001529"
+          text-color="white"
+        >
           <Menu :MenuList="userStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
     <!--    顶部导航-->
-    <div class="layout_tabbar" :class="{ fold: LayoutSettingStore.fold ? true : false }">
+    <div
+      class="layout_tabbar"
+      :class="{ fold: LayoutSettingStore.fold ? true : false }"
+    >
       <!-- layout组件的顶部导航tabbar -->
       <Tabbar></Tabbar>
     </div>
     <!--    内容展示区域-->
-    <div class="layout_main" :class="{ fold: LayoutSettingStore.fold ? true : false }">
+    <div
+      class="layout_main"
+      :class="{ fold: LayoutSettingStore.fold ? true : false }"
+    >
       <Main></Main>
     </div>
   </div>
