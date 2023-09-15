@@ -29,16 +29,5 @@ app.use(globalComponent)
 //注册模板路由
 app.use(router)
 app.use(pinia)
-
-//登录接口
-// axios({
-//   url: '/api/user/login',
-//   method: 'post',
-//   data: {
-//     username: 'admin',
-//     password: '111111',
-//   },
-// })
-
 //将应用挂载到挂载点上
 app.mount('#app')
