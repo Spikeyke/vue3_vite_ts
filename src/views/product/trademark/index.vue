@@ -27,19 +27,20 @@
 <script setup lang="ts">
 import {ref, onMounted} from 'vue'
 import {reqHasTrademark} from "@/api/product/trademark/index";
+import type {Records, tradeMarkResposeData} from "@/api/product/trademark/type";
 
 let pageNo = ref<number>(1)
 let limit = ref<number>(3)
 let total = ref<number>(0)
-let tradeMarkArr = ref<any>([])
+let tradeMarkArr = ref<Records>([])
 const getHasTrademark = async () => {
-  let result = await reqHasTrademark(pageNo.value, limit.value)
+  let result: tradeMarkResposeData = await reqHasTrademark(pageNo.value, limit.value)
   if (result.code == 200) {
     total.value = result.data.total
     tradeMarkArr.value = result.data.records
-    tradeMarkArr.value.map(item=>{
-      if(item.tmName=='小米'){
-        item.logoUrl='http://'+item.logoUrl
+    tradeMarkArr.value.map(item => {
+      if (item.tmName == '小米') {
+        item.logoUrl = 'http://' + item.logoUrl
       }
     })
   }
