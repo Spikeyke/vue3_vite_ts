@@ -18,8 +18,10 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination v-model:current-page="pageNo" v-model:page-size="limit" :pages="[3,5,7,9]" small
-                     layout="prev,pager,next,jumper,->,sizes,total" :total="total"></el-pagination>
+      <el-pagination v-model:current-page="pageNo" v-model:page-size="limit" :page-sizes="[3,5,7,9]" small
+                     layout="prev,pager,next,jumper,->,sizes,total" :total="total"
+                     @current-change="getHasTrademark"
+                     @size-change="getHasTrademark"></el-pagination>
     </el-card>
   </div>
 </template>
